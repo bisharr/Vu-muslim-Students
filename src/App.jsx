@@ -17,6 +17,9 @@ import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/ForgotPassword";
 import EditProfile from "./pages/EditProfile";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminRoute from "./routes/AdminRoute";
+import UserList from "./pages/Admin/UserList";
 
 function App() {
   return (
@@ -61,6 +64,15 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
+        <Route path="/admin/users" element={<UserList />} />
         <Route
           path="/forgot-password"
           element={

@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const EditProfile = () => {
   const { user } = useAuth();
+
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", phone: "", photoURL: "" });
   const [image, setImage] = useState(null);

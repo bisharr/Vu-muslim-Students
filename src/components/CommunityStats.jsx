@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { db } from "../firebase/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import CountUp from "react-countup"; // 👉 install this with: npm install react-countup
+import CountUp from "react-countup";
+import { useAuth } from "../context/AuthContext"; // ✅ Add this line
 
 const CommunityStats = () => {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const { user } = useAuth(); // ✅ get the user
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -29,7 +31,7 @@ const CommunityStats = () => {
       style={{ backgroundImage: "url('/student2.jpg')" }}
     >
       <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl shadow-xl max-w-3xl mx-auto p-6 sm:p-10 text-center">
-        {/* Optional Logo */}
+        {/* Logo */}
         <div className="flex justify-center mb-4">
           <img
             src="/logo.png"
@@ -38,6 +40,7 @@ const CommunityStats = () => {
           />
         </div>
 
+        {/* Heading */}
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">
           We are the Muslim students and community of Victoria University
         </h2>
@@ -48,21 +51,23 @@ const CommunityStats = () => {
           <span className="font-extrabold text-blue-900 text-3xl sm:text-4xl">
             {loading ? "..." : <CountUp end={count} duration={2} />}
           </span>{" "}
-          and counting , strong — united by faith, purpose, Students, and
+          and counting, strong — united by faith, purpose, students, and
           community.
         </p>
 
-        {/* Call to action */}
-        <p className="mt-4 text-gray-600 text-sm sm:text-base">
-          To be counted and strengthen our community, please{" "}
-          <Link
-            to="/signup"
-            className="text-blue-600 font-medium underline hover:text-blue-800"
-          >
-            sign up
-          </Link>
-          .
-        </p>
+        {/* Show call to action only if not signed in */}
+        {!user && (
+          <p className="mt-4 text-gray-600 text-sm sm:text-base">
+            To be counted and strengthen our community, please{" "}
+            <Link
+              to="/signup"
+              className="text-blue-600 font-medium underline hover:text-blue-800"
+            >
+              sign up
+            </Link>
+            .
+          </p>
+        )}
 
         {/* Islamic Quote */}
         <div className="mt-6 italic text-gray-700 text-sm sm:text-base">

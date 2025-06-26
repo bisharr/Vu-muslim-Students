@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { RiCloseLargeFill } from "react-icons/ri";
-import { useAuth } from "../context/AuthContext"; // ✅ Import your auth context
+import { useAuth } from "../context/AuthContext";
 import { getAuth, signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 
@@ -10,19 +10,18 @@ function Navbar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user } = useAuth(); // ✅ current user from context
+  const { user, userRole } = useAuth();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  // Handle Logout
   const handleLogout = async () => {
     try {
       await signOut(getAuth());
       toast.success("Signed out successfully");
       navigate("/signin");
     } catch (error) {
-      toast.error("Logout failed", error);
+      toast.error("Logout failed", error.message);
     }
   };
 
@@ -33,6 +32,16 @@ function Navbar() {
     { name: "Resources", path: "/resources" },
     { name: "Contact", path: "/contact" },
   ];
+
+  const handleProtectedNavigation = (path) => {
+    if (!user && path !== "/") {
+      toast.warning("Please sign in to access this page");
+      navigate("/signin");
+      return;
+    }
+    navigate(path);
+    closeMenu();
+  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50 transition-colors">
@@ -53,9 +62,9 @@ function Navbar() {
         {/* Desktop Nav */}
         <nav className="space-x-4 hidden sm:flex items-center">
           {navLinks.map((link) => (
-            <Link
+            <button
               key={link.path}
-              to={link.path}
+              onClick={() => handleProtectedNavigation(link.path)}
               className={`text-sm font-medium ${
                 pathname === link.path
                   ? "text-blue-600 border-b-2 border-blue-600"
@@ -63,19 +72,31 @@ function Navbar() {
               } pb-1 transition`}
             >
               {link.name}
-            </Link>
+            </button>
           ))}
 
-          {!user && (
+          {/* Admin Link */}
+          {user && userRole === "admin" && (
+            <Link
+              to="/admin"
+              className={`text-sm font-medium ${
+                pathname === "/admin"
+                  ? "text-blue-600 border-b-2 border-blue-600"
+                  : "text-gray-700 hover:text-blue-500"
+              } pb-1 transition`}
+            >
+              Admin Panel
+            </Link>
+          )}
+
+          {!user ? (
             <Link
               to="/signin"
               className="text-sm font-medium text-gray-700 hover:text-blue-500 transition"
             >
               Sign In
             </Link>
-          )}
-
-          {user && (
+          ) : (
             <>
               <Link
                 to="/profile"
@@ -111,10 +132,9 @@ function Navbar() {
       {menuOpen && (
         <div className="sm:hidden bg-white border-t shadow-md px-4 py-3 space-y-2">
           {navLinks.map((link) => (
-            <Link
+            <button
               key={link.path}
-              to={link.path}
-              onClick={closeMenu}
+              onClick={() => handleProtectedNavigation(link.path)}
               className={`block text-sm font-medium ${
                 pathname === link.path
                   ? "text-blue-600"
@@ -122,10 +142,25 @@ function Navbar() {
               }`}
             >
               {link.name}
-            </Link>
+            </button>
           ))}
 
-          {!user && (
+          {/* Admin Link */}
+          {user && userRole === "admin" && (
+            <Link
+              to="/admin"
+              onClick={closeMenu}
+              className={`block text-sm font-medium text-blue-400 p-2 ${
+                pathname === "/admin"
+                  ? "text-blue-600"
+                  : "text-gray-700 hover:text-blue-500"
+              }`}
+            >
+              Admin Panel
+            </Link>
+          )}
+
+          {!user ? (
             <Link
               to="/signin"
               onClick={closeMenu}
@@ -133,9 +168,7 @@ function Navbar() {
             >
               Sign In
             </Link>
-          )}
-
-          {user && (
+          ) : (
             <>
               <Link
                 to="/profile"
