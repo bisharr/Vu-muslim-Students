@@ -1,12 +1,30 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { RiCloseLargeFill } from "react-icons/ri";
-// icon library (optional alternative: heroicons)
+import { useAuth } from "../context/AuthContext"; // ✅ Import your auth context
+import { getAuth, signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 function Navbar() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user } = useAuth(); // ✅ current user from context
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
+
+  // Handle Logout
+  const handleLogout = async () => {
+    try {
+      await signOut(getAuth());
+      toast.success("Signed out successfully");
+      navigate("/signin");
+    } catch (error) {
+      toast.error("Logout failed", error);
+    }
+  };
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -16,11 +34,8 @@ function Navbar() {
     { name: "Contact", path: "/contact" },
   ];
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
-
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-50 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -33,10 +48,11 @@ function Navbar() {
             alt="MCV Logo"
             className="h-10 w-15 object-contain"
           />
+          <span className="text-lg font-semibold text-gray-800">MCV</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="space-x-4 hidden sm:block">
+        <nav className="space-x-4 hidden sm:flex items-center">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -44,24 +60,50 @@ function Navbar() {
               className={`text-sm font-medium ${
                 pathname === link.path
                   ? "text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-600 hover:text-blue-500"
+                  : "text-gray-700 hover:text-blue-500"
               } pb-1 transition`}
             >
               {link.name}
             </Link>
           ))}
+
+          {!user && (
+            <Link
+              to="/signin"
+              className="text-sm font-medium text-gray-700 hover:text-blue-500 transition"
+            >
+              Sign In
+            </Link>
+          )}
+
+          {user && (
+            <>
+              <Link
+                to="/profile"
+                className="text-sm font-medium text-gray-700 hover:text-blue-500 transition"
+              >
+                Profile
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="text-sm font-medium text-red-600 hover:underline"
+              >
+                Logout
+              </button>
+            </>
+          )}
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
           className="sm:hidden text-blue-700 focus:outline-none"
           aria-label="Toggle Menu"
         >
           {menuOpen ? (
-            <IoIosMenu className="h-6 w-6" />
-          ) : (
             <RiCloseLargeFill className="h-6 w-6" />
+          ) : (
+            <IoIosMenu className="h-6 w-6" />
           )}
         </button>
       </div>
@@ -83,6 +125,37 @@ function Navbar() {
               {link.name}
             </Link>
           ))}
+
+          {!user && (
+            <Link
+              to="/signin"
+              onClick={closeMenu}
+              className="block text-sm font-medium text-gray-700 hover:text-blue-500"
+            >
+              Sign In
+            </Link>
+          )}
+
+          {user && (
+            <>
+              <Link
+                to="/profile"
+                onClick={closeMenu}
+                className="block text-sm font-medium text-gray-700 hover:text-blue-500"
+              >
+                Profile
+              </Link>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  closeMenu();
+                }}
+                className="block text-sm font-medium text-red-600 hover:underline"
+              >
+                Logout
+              </button>
+            </>
+          )}
         </div>
       )}
     </header>

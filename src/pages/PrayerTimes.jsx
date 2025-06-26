@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PrayerReminder from "../components/PrayerReminder";
 
 function PrayerTimes() {
   const [prayers, setPrayers] = useState(null);
@@ -53,6 +54,7 @@ function PrayerTimes() {
           </div>
         )}
       </div>
+      <PrayerReminder />
     </div>
   );
 }

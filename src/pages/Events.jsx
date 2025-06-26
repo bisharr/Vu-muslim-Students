@@ -1,3 +1,5 @@
+import DonationInfo from "../components/DonationInfo";
+
 // src/pages/Events.jsx
 function Events() {
   const events = [
@@ -54,6 +56,8 @@ function Events() {
           ))}
         </div>
       </div>
+      {/* Donate */}
+      <DonationInfo />
     </div>
   );
 }

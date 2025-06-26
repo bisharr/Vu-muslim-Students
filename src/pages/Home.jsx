@@ -2,6 +2,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import PrayerReminder from "../components/PrayerReminder";
+import DonationInfo from "../components/DonationInfo";
+import CommunityStats from "../components/CommunityStats";
+import Gallery from "../components/Gallery";
 
 function Home() {
   // Quotes
@@ -85,15 +89,8 @@ function Home() {
     setAnimate(true);
   }, []);
 
-  const galleryImages = [
-    "/student1.jpg",
-    "/gallery2.jpg",
-    "/gallery3.jpg",
-    "/gallery4.jpg",
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-10 px-4 sm:px-6 lg:px-8">
+    <div className=" min-h-screen bg-gradient-to-b from-blue-50 to-white py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Welcome */}
         <div className="text-center">
@@ -105,6 +102,8 @@ function Home() {
             learn, and grow together in Victoria.
           </p>
         </div>
+        {/* counts */}
+        <CommunityStats />
         {/* Purpose/About */}
         <div className="bg-white p-8 rounded-xl shadow-lg text-center">
           <h2 className="text-2xl font-bold text-blue-700 mb-2">
@@ -116,6 +115,8 @@ function Home() {
             events, and learning opportunities.
           </p>
         </div>
+        {/* Player reminder */}
+        <PrayerReminder />
 
         {/* Quote of the Day */}
         <div className="bg-blue-100 border-l-4 border-blue-500 p-6 rounded-xl shadow mb-10">
@@ -157,22 +158,10 @@ function Home() {
         )}
 
         {/* Gallery */}
-        <div>
-          <h3 className="text-xl font-bold text-center text-blue-600 mb-4">
-            📸 Community Moments
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-4">
-            {galleryImages.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={`Gallery ${i + 1}`}
-                className="rounded-lg shadow-md h-64 w-full  "
-              />
-            ))}
-          </div>
-        </div>
+        <Gallery />
       </div>
+      {/* Donate */}
+      <DonationInfo />
     </div>
   );
 }

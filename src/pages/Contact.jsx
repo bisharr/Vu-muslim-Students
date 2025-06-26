@@ -1,6 +1,7 @@
 // src/pages/Contact.jsx
 import { useState } from "react";
 import { toast } from "react-toastify";
+import DonationInfo from "../components/DonationInfo";
 
 function Contact() {
   const [form, setForm] = useState({
@@ -108,6 +109,8 @@ function Contact() {
           </div>
         </form>
       </div>
+
+      <DonationInfo />
     </div>
   );
 }
