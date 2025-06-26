@@ -4,8 +4,8 @@ function Gallery() {
   const galleryImages = [
     "/student1.jpg",
     "/student2.jpg",
-    "/gallery3.jpg",
-    "/gallery4.jpg",
+    "/student3.jpeg",
+    "/student4.jpeg",
   ];
   return (
     <div>

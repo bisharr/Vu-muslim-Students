@@ -48,7 +48,6 @@ function Navbar() {
             alt="MCV Logo"
             className="h-10 w-15 object-contain"
           />
-          <span className="text-lg font-semibold text-gray-800">MCV</span>
         </Link>
 
         {/* Desktop Nav */}
