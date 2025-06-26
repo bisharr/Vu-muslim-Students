@@ -6,8 +6,11 @@ import PrayerReminder from "../components/PrayerReminder";
 import DonationInfo from "../components/DonationInfo";
 import CommunityStats from "../components/CommunityStats";
 import Gallery from "../components/Gallery";
+import { useAuth } from "../context/AuthContext";
 
 function Home() {
+  const { user } = useAuth();
+
   // Quotes
   const quotes = [
     {
@@ -93,15 +96,19 @@ function Home() {
     <div className=" min-h-screen bg-gradient-to-b from-blue-50 to-white py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Welcome */}
+
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-blue-700 mb-2">
-            Welcome to the Muslim Community of Victoria 🕌
+            {user?.displayName
+              ? `Welcome ${user.displayName} to the Muslim Community of Victoria 🕌`
+              : "Welcome to the Muslim Community of Victoria 🕌"}
           </h1>
           <p className="text-gray-600 max-w-xl mx-auto text-lg">
             A united place for students and community members to connect, pray,
             learn, and grow together in Victoria.
           </p>
         </div>
+
         {/* counts */}
         <CommunityStats />
         {/* Purpose/About */}

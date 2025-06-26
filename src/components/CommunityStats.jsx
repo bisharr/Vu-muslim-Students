@@ -34,7 +34,7 @@ const CommunityStats = () => {
           <img
             src="/logo.png"
             alt="MCV Logo"
-            className="h-12 w-12 object-contain"
+            className="h-13 w-20 object-contain"
           />
         </div>
 

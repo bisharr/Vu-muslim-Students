@@ -1,79 +1,62 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { getAuth, signOut } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
+import { FaRegUserCircle } from "react-icons/fa";
 import { db } from "../firebase/firebaseConfig";
-import { FaUser } from "react-icons/fa"; // make sure path is correct
+import { Link } from "react-router-dom";
 import DonationInfo from "../components/DonationInfo";
 
 const Profile = () => {
   const { user } = useAuth();
-  const [userData, setUserData] = useState(null);
-  const navigate = useNavigate();
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Load Firestore user data
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchProfile = async () => {
       if (!user) return;
-
-      const ref = doc(db, "users", user.uid);
-      const docSnap = await getDoc(ref);
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setUserData(docSnap.data());
+        setProfile(docSnap.data());
       }
+      setLoading(false);
     };
 
-    fetchUserData();
+    fetchProfile();
   }, [user]);
 
-  const handleLogout = async () => {
-    await signOut(getAuth());
-    navigate("/signin");
-  };
-
-  if (!user) return <p className="text-center mt-20">You must be signed in.</p>;
+  if (!user) return <p className="text-center mt-20">Please sign in first.</p>;
+  if (loading) return <p className="text-center mt-20">Loading profile...</p>;
 
   return (
-    <>
-      <div className="max-w-lg mx-auto mt-20 bg-white shadow-lg rounded-lg p-6 text-center">
-        <h2 className="text-2xl font-semibold mb-4 text-blue-700">
-          Your Profile
-        </h2>
+    <section className="min-h-screen bg-gray-100 py-12 px-4">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-10 text-center">
         <img
-          src={user.photoURL || <FaUser />}
-          alt="Profile"
-          className="w-24 h-24 mx-auto rounded-full border mb-4"
+          src={
+            profile?.photoURL ||
+            "https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff&rounded=true"
+          }
+          alt="."
+          className="w-28 h-28 rounded-full object-cover mx-auto border-4 border-blue-500 shadow"
         />
-        <p className="text-gray-800">
-          <strong>Name:</strong> {userData?.name || "Not provided"}
-        </p>
-        <p className="text-gray-800">
-          <strong>Phone:</strong> {userData?.phone || "N/A"}
-        </p>
-        <p className="text-gray-800">
-          <strong>Email:</strong> {user.email}
-        </p>
-        <p className="text-gray-600 text-sm mt-2">
-          <strong>UID:</strong> {user.uid}
+        <h2 className="text-2xl font-bold mt-4 text-blue-800">
+          {profile?.name || "No Name"}
+        </h2>
+        <p className="text-gray-600">{user.email}</p>
+        <p className="mt-2 text-gray-700">
+          📞 {profile?.phone || "No phone number"}
         </p>
 
-        <button
-          onClick={handleLogout}
-          className="mt-6 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded transition"
-        >
-          Sign Out
-        </button>
         <Link
           to="/edit-profile"
-          className="mt-4 block text-white bg-blue-500 hover:bg-blue-700 transition-all duration-200 ease-in-out text-sm p-4 "
+          className="inline-block w-full mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition shadow"
         >
           Edit Profile
         </Link>
       </div>
       <DonationInfo />
-    </>
+    </section>
   );
 };
 
