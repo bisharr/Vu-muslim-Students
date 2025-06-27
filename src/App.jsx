@@ -23,6 +23,7 @@ import AdminRoute from "./routes/AdminRoute";
 import AdminPostEvent from "./Admin/AdminPostEvent";
 import PostEvent from "./Admin/AdminPostEvent";
 import ManageEvents from "./Admin/ManageEvents";
+import ViewMessages from "./Admin/ViewMessages";
 
 function App() {
   return (
@@ -100,13 +101,14 @@ function App() {
           }
         />
         <Route
-          path="/forgot-password"
+          path="/admin/messages"
           element={
-            <PrivateRoute>
-              <ForgotPassword />
-            </PrivateRoute>
+            <AdminRoute>
+              <ViewMessages />
+            </AdminRoute>
           }
         />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route
           path="/resources"
           element={

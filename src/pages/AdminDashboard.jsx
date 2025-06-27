@@ -35,10 +35,12 @@ const AdminDashboard = () => {
             </Link>
           </div>
           <div className="bg-yellow-100 p-4 rounded-lg shadow">
-            <h2 className="font-semibold text-yellow-700 mb-2">
-              ✉️ Contact Messages
-            </h2>
-            <p>See messages submitted through the website.</p>
+            <Link to="/admin/messages">
+              <h2 className="font-semibold text-yellow-700 mb-2">
+                ✉️ Contact Messages
+              </h2>
+              <p>See messages submitted through the website.</p>
+            </Link>
           </div>
         </div>
       </div>
