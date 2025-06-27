@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase/firebaseConfig";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import GoogleButton from "../components/GoogleButton";
@@ -34,7 +35,9 @@ const SignUp = () => {
         phone
       );
       const user = userCredential.user;
-
+      await updateProfile(auth.currentUser, {
+        displayName: name, // name from your form
+      });
       await setDoc(doc(db, "users", user.uid), {
         uid: user.uid,
         name,

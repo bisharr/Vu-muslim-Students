@@ -32,7 +32,7 @@ function ManageEvents() {
       }));
       setEvents(fetchedEvents);
     } catch (err) {
-      toast.error("Failed to fetch events");
+      toast.error("Failed to fetch events", err);
     }
   };
 
@@ -62,7 +62,7 @@ function ManageEvents() {
       setEditingId(null);
       fetchEvents();
     } catch (error) {
-      toast.error("Update failed");
+      toast.error("Update failed", error);
     }
   };
 
