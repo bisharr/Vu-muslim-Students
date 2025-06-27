@@ -18,11 +18,21 @@ const AdminDashboard = () => {
               <p>View and manage all student accounts.</p>
             </Link>
           </div>
+          {/* Post Events */}
           <div className="bg-green-100 p-4 rounded-lg shadow">
-            <h2 className="font-semibold text-green-700 mb-2">
-              📢 Announcements
-            </h2>
-            <p>Post and edit community announcements.</p>
+            <Link to="/admin/post-event">
+              <h2 className="font-semibold text-green-700 mb-2">
+                📢 Announcements and Events
+              </h2>
+              <p>Post community announcements.</p>
+            </Link>
+          </div>
+          {/* Edit Events */}
+          <div className="bg-slate-100 p-4 rounded-lg shadow">
+            <Link to="/admin/manage-events">
+              <h2 className="font-semibold text-blue-700 mb-2">📢 Events</h2>
+              <p>Delete and edit community announcements.</p>
+            </Link>
           </div>
           <div className="bg-yellow-100 p-4 rounded-lg shadow">
             <h2 className="font-semibold text-yellow-700 mb-2">

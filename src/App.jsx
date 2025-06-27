@@ -15,11 +15,14 @@ import ScrollToTop from "./components/ScrollToTop";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
+import UserList from "./Admin/UserList";
 import ForgotPassword from "./pages/ForgotPassword";
 import EditProfile from "./pages/EditProfile";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./routes/AdminRoute";
-import UserList from "./pages/Admin/UserList";
+import AdminPostEvent from "./Admin/AdminPostEvent";
+import PostEvent from "./Admin/AdminPostEvent";
+import ManageEvents from "./Admin/ManageEvents";
 
 function App() {
   return (
@@ -72,7 +75,30 @@ function App() {
             </AdminRoute>
           }
         />
-        <Route path="/admin/users" element={<UserList />} />
+        <Route
+          path="/admin/users"
+          element={
+            <AdminRoute>
+              <UserList />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/post-event"
+          element={
+            <AdminRoute>
+              <PostEvent />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/manage-events"
+          element={
+            <AdminRoute>
+              <ManageEvents />
+            </AdminRoute>
+          }
+        />
         <Route
           path="/forgot-password"
           element={
