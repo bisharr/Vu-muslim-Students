@@ -1,0 +1,12 @@
+specVersion: "v1"
+serviceId: "Vu-Muslim-Students"
+location: "asia-east1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "postgres"
+      cloudSql:
+        instanceId: "vu-muslim-students-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
