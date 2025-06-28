@@ -25,6 +25,9 @@ import PostEvent from "./Admin/AdminPostEvent";
 import ManageEvents from "./Admin/ManageEvents";
 import ViewMessages from "./Admin/ViewMessages";
 
+import QuizForm from "./Admin/QuizForm";
+import AttemptQuiz from "./pages/AttempQuiz";
+
 function App() {
   return (
     <>
@@ -106,6 +109,22 @@ function App() {
             <AdminRoute>
               <ViewMessages />
             </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/quizForm"
+          element={
+            <AdminRoute>
+              <QuizForm />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/quiz"
+          element={
+            <PrivateRoute>
+              <AttemptQuiz />
+            </PrivateRoute>
           }
         />
         <Route path="/forgot-password" element={<ForgotPassword />} />

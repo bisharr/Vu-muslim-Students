@@ -1,12 +1,13 @@
 // src/pages/Home.jsx
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import { toast } from "react-toastify";
 import PrayerReminder from "../components/PrayerReminder";
 import DonationInfo from "../components/DonationInfo";
 import CommunityStats from "../components/CommunityStats";
 import Gallery from "../components/Gallery";
 import { useAuth } from "../context/AuthContext";
+import RandomVerse from "../components/RandomVerse";
 
 function Home() {
   const { user } = useAuth();
@@ -31,21 +32,7 @@ function Home() {
     },
   ];
 
-  const [quote, setQuote] = useState(
-    quotes[Math.floor(Math.random() * quotes.length)]
-  );
-  const [animate, setAnimate] = useState(false);
   const [ayah, setAyah] = useState(null);
-
-  const getAnotherQuote = () => {
-    setAnimate(false);
-    let newQuote;
-    do {
-      newQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    } while (newQuote.text === quote.text);
-    setQuote(newQuote);
-    setTimeout(() => setAnimate(true), 10);
-  };
 
   const fetchAyah = async () => {
     try {
@@ -89,7 +76,6 @@ function Home() {
 
   useEffect(() => {
     fetchAyah();
-    setAnimate(true);
   }, []);
 
   return (
@@ -125,27 +111,6 @@ function Home() {
         {/* Player reminder */}
         <PrayerReminder />
 
-        {/* Quote of the Day */}
-        <div className="bg-blue-100 border-l-4 border-blue-500 p-6 rounded-xl shadow mb-10">
-          <h3 className="text-xl font-bold text-blue-800 mb-2">
-            🧠 Quote of the Day
-          </h3>
-          <div className={animate ? "fade-in" : ""}>
-            <p className="text-lg italic text-gray-800">"{quote.text}"</p>
-            <p className="text-sm text-right text-gray-600 mt-2">
-              {quote.source}
-            </p>
-          </div>
-          <div className="text-center mt-4">
-            <button
-              onClick={getAnotherQuote}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition"
-            >
-              🔁 Get Another Quote
-            </button>
-          </div>
-        </div>
-
         {/* Ayah of the Day */}
         {ayah && (
           <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-xl shadow mb-10">
@@ -163,6 +128,8 @@ function Home() {
             </p>
           </div>
         )}
+        {/* Random verses */}
+        <RandomVerse />
 
         {/* Gallery */}
         <Gallery />
