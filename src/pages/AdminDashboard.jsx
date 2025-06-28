@@ -42,14 +42,22 @@ const AdminDashboard = () => {
               <p>See messages submitted through the website.</p>
             </Link>
           </div>
-          <div className="bg-green-100 p-4 rounded-lg shadow">
+          {/* <div className="bg-yellow-100 p-4 rounded-lg shadow">
+            <Link to="/admin/addmin-add_Photo">
+              <h2 className="font-semibold text-yellow-700 mb-2">
+                ✉️ Community Photo
+              </h2>
+              <p>Add Community Photo</p>
+            </Link>
+          </div> */}
+          {/* <div className="bg-green-100 p-4 rounded-lg shadow">
             <Link to="/admin/quizForm">
               <h2 className="font-semibold text-yellow-700 mb-2">
                 ✉️ Quiz Form
               </h2>
               <p>Submit new Quiz</p>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -8,29 +8,12 @@ import CommunityStats from "../components/CommunityStats";
 import Gallery from "../components/Gallery";
 import { useAuth } from "../context/AuthContext";
 import RandomVerse from "../components/RandomVerse";
+import StaticGallery from "../components/Gallery";
 
 function Home() {
   const { user } = useAuth();
 
   // Quotes
-  const quotes = [
-    {
-      text: "Indeed, in the remembrance of Allah do hearts find rest.",
-      source: "— Surah Ar-Ra’d (13:28)",
-    },
-    {
-      text: "The best among you are those who have the best manners and character.",
-      source: "— Prophet Muhammad ﷺ",
-    },
-    {
-      text: "So remember Me; I will remember you.",
-      source: "— Surah Al-Baqarah (2:152)",
-    },
-    {
-      text: "Whoever puts their trust in Allah, then He will suffice them.",
-      source: "— Surah At-Talaq (65:3)",
-    },
-  ];
 
   const [ayah, setAyah] = useState(null);
 
@@ -132,7 +115,7 @@ function Home() {
         <RandomVerse />
 
         {/* Gallery */}
-        <Gallery />
+        <StaticGallery />
       </div>
       {/* Donate */}
       <DonationInfo />
