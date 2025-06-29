@@ -83,6 +83,10 @@ const EditProfile = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("Current user info:", user);
+  }, [user]);
+
   if (!user)
     return (
       <p className="text-center mt-20">Please sign in to edit your profile.</p>

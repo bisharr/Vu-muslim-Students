@@ -28,9 +28,9 @@ const CommunityStats = () => {
   return (
     <div
       className="bg-cover bg-center py-16 px-4 sm:px-8"
-      style={{ backgroundImage: "url('/student2.jpg')" }}
+      style={{ backgroundImage: "url('/student1.jpg')" }}
     >
-      <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl shadow-xl max-w-3xl mx-auto p-6 sm:p-10 text-center">
+      <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-xl max-w-3xl mx-auto p-6 sm:p-10 text-center">
         {/* Logo */}
         <div className="flex justify-center mb-4">
           <img

@@ -81,9 +81,9 @@ const UserList = () => {
     setNewUser({ name: "", email: "", phone: "" });
     fetchUsers();
   };
-
   const toggleAdmin = async (user) => {
     const updatedRole = user.role === "admin" ? "user" : "admin";
+    console.log("Toggling role for", user.name, "to", updatedRole);
     await updateDoc(doc(db, "users", user.id), { role: updatedRole });
     toast.info(`User role updated to ${updatedRole}`);
     fetchUsers();

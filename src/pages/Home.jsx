@@ -113,9 +113,6 @@ function Home() {
         )}
         {/* Random verses */}
         <RandomVerse />
-
-        {/* Gallery */}
-        <StaticGallery />
       </div>
       {/* Donate */}
       <DonationInfo />

@@ -3,13 +3,13 @@ import { useState } from "react";
 const staticPhotos = [
   {
     id: 1,
-    imageUrl: "student3.jpg",
-    caption: "Jummah Prayer Gathering",
+    imageUrl: "student1.jpg",
+    caption: "Eid al-Fitr Celebration",
   },
   {
     id: 2,
-    imageUrl: "student1.jpg",
-    caption: "Eid al-Fitr Celebration",
+    imageUrl: "student3.jpeg",
+    caption: "",
   },
   {
     id: 3,
@@ -18,12 +18,42 @@ const staticPhotos = [
   },
   {
     id: 4,
-    imageUrl: "student4.jpg",
-    caption: "Youth Quran Circle",
+    imageUrl: "student5.jpg",
+    caption: "",
   },
   {
     id: 5,
-    imageUrl: "/images/gallery5.jpg",
+    imageUrl: "student6.jpg",
+    caption: "Ramadan Iftar Night",
+  },
+  {
+    id: 6,
+    imageUrl: "/images/gallery6.jpg",
+    caption: "Sisters' Halaqa",
+  },
+  {
+    id: 1,
+    imageUrl: "student1.jpg",
+    caption: "Eid al-Fitr Celebration",
+  },
+  {
+    id: 2,
+    imageUrl: "student3.jpeg",
+    caption: "",
+  },
+  {
+    id: 3,
+    imageUrl: "student2.jpg",
+    caption: "Community BBQ Event",
+  },
+  {
+    id: 4,
+    imageUrl: "student5.jpg",
+    caption: "",
+  },
+  {
+    id: 5,
+    imageUrl: "student6.jpg",
     caption: "Ramadan Iftar Night",
   },
   {

@@ -14,6 +14,8 @@ const ViewMessages = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
+  const [replyContent, setReplyContent] = useState("");
+  const [replyingTo, setReplyingTo] = useState(null);
 
   const fetchMessages = async () => {
     try {
@@ -49,6 +51,22 @@ const ViewMessages = () => {
       );
     } catch (error) {
       toast.error("Failed to update message status", error);
+    }
+  };
+
+  const sendReply = async () => {
+    if (!replyContent || !replyingTo) return;
+    try {
+      await updateDoc(doc(db, "messages", replyingTo), {
+        adminReply: replyContent,
+        repliedAt: new Date().toISOString(),
+      });
+      toast.success("Reply sent");
+      setReplyingTo(null);
+      setReplyContent("");
+      fetchMessages();
+    } catch (error) {
+      toast.error("Failed to send reply", error);
     }
   };
 
@@ -104,6 +122,48 @@ const ViewMessages = () => {
                 <p className="text-gray-700 whitespace-pre-wrap mb-3">
                   {msg.message}
                 </p>
+
+                {msg.adminReply && (
+                  <p className="text-sm text-green-700 bg-green-100 rounded p-2 mb-3">
+                    <strong>Admin Reply:</strong> {msg.adminReply}
+                  </p>
+                )}
+
+                {replyingTo === msg.id ? (
+                  <div className="mb-3">
+                    <textarea
+                      className="w-full border p-2 rounded mb-2"
+                      placeholder="Type your reply here..."
+                      value={replyContent}
+                      onChange={(e) => setReplyContent(e.target.value)}
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        onClick={sendReply}
+                        className="bg-blue-600 text-white px-3 py-1 rounded"
+                      >
+                        Send Reply
+                      </button>
+                      <button
+                        onClick={() => setReplyingTo(null)}
+                        className="bg-gray-300 px-3 py-1 rounded"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setReplyingTo(msg.id);
+                      setReplyContent(msg.adminReply || "");
+                    }}
+                    className="text-sm text-blue-600 underline mb-2"
+                  >
+                    Reply
+                  </button>
+                )}
+
                 <div className="flex items-center justify-between text-sm">
                   <button
                     onClick={() => toggleReadStatus(msg.id, msg.read)}
