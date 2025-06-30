@@ -62,18 +62,6 @@ const UserList = () => {
     fetchUsers();
   };
 
-  const handleEdit = (user) => {
-    setEditingUser(user);
-  };
-
-  const handleUpdate = async () => {
-    if (!editingUser.name || !editingUser.email) return;
-    await updateDoc(doc(db, "users", editingUser.id), editingUser);
-    toast.success("User updated");
-    setEditingUser(null);
-    fetchUsers();
-  };
-
   const handleAddUser = async () => {
     if (!newUser.name || !newUser.email) return;
     await addDoc(collection(db, "users"), newUser);
@@ -163,6 +151,7 @@ const UserList = () => {
               </tr>
             </thead>
             <tbody>
+              {/* update user */}
               {paginatedUsers.map((user) => (
                 <tr
                   key={user.id}
@@ -225,21 +214,6 @@ const UserList = () => {
                   </td>
                   <td className="p-2 capitalize">{user.role || "user"}</td>
                   <td className="p-2 flex gap-2">
-                    {editingUser?.id === user.id ? (
-                      <button
-                        onClick={handleUpdate}
-                        className="text-sm px-2 py-1 bg-blue-600 text-white rounded"
-                      >
-                        Save
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => handleEdit(user)}
-                        className="text-blue-600 hover:text-blue-800"
-                      >
-                        <FaUserEdit />
-                      </button>
-                    )}
                     <button
                       onClick={() => toggleAdmin(user)}
                       className="text-yellow-600 hover:text-yellow-800"

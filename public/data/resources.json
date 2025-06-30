@@ -2,21 +2,25 @@
   {
     "title": "The Life of Muhammad (Seerah)",
     "description": "A detailed biography of Prophet Muhammad (PBUH).",
-    "url": "The-life-of-The-Muhammad.pdf"
+    "url": "The-life-of-The-Muhammad.pdf",
+    "image": "/data/serah.jpeg"
   },
   {
     "title": "Fortress of the Muslim",
     "description": "A collection of daily Islamic supplications (duas).",
-    "url": "fortress_of_muslim.pdf"
+    "url": "fortress_of_muslim.pdf",
+    "image": "/data/fortress.jpeg"
   },
   {
     "title": "40 Hadith by Imam Nawawi",
     "description": "A compilation of 40 essential hadiths by Imam Nawawi.",
-    "url": "40 Hadith of Imam Nawawi.pdf"
+    "url": "40 Hadith of Imam Nawawi.pdf",
+    "image": "/data/hadith40.jpeg"
   },
   {
     "title": "A Brief Illustrated Guide to Understanding Islam",
     "description": "An easy-to-understand intro to Islam.",
-    "url": "islam-guide.pdf"
+    "url": "islam-guide.pdf",
+    "image": "/data/guide.jpeg"
   }
 ]

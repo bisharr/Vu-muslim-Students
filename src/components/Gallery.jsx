@@ -3,64 +3,40 @@ import { useState } from "react";
 const staticPhotos = [
   {
     id: 1,
-    imageUrl: "student1.jpg",
+    imageUrl: "gallery/student1.jpg",
     caption: "Eid al-Fitr Celebration",
   },
   {
     id: 2,
-    imageUrl: "student3.jpeg",
+    imageUrl: "gallery/student3.jpeg",
     caption: "",
   },
   {
     id: 3,
-    imageUrl: "student2.jpg",
-    caption: "Community BBQ Event",
+    imageUrl: "gallery/student2.jpg",
+    caption: "Friday Khutbah",
   },
   {
     id: 4,
-    imageUrl: "student5.jpg",
+    imageUrl: "gallery/student5.jpg",
     caption: "",
   },
   {
     id: 5,
-    imageUrl: "student6.jpg",
-    caption: "Ramadan Iftar Night",
-  },
-  {
-    id: 6,
-    imageUrl: "/images/gallery6.jpg",
-    caption: "Sisters' Halaqa",
-  },
-  {
-    id: 1,
-    imageUrl: "student1.jpg",
-    caption: "Eid al-Fitr Celebration",
-  },
-  {
-    id: 2,
-    imageUrl: "student3.jpeg",
+    imageUrl: "gallery/student6.jpg",
     caption: "",
   },
   {
-    id: 3,
-    imageUrl: "student2.jpg",
-    caption: "Community BBQ Event",
-  },
-  {
-    id: 4,
-    imageUrl: "student5.jpg",
-    caption: "",
-  },
-  {
-    id: 5,
-    imageUrl: "student6.jpg",
-    caption: "Ramadan Iftar Night",
+    id: 6,
+    imageUrl: "gallery/student7.jpg",
+    caption: "friday khutbah",
   },
   {
     id: 6,
-    imageUrl: "/images/gallery6.jpg",
-    caption: "Sisters' Halaqa",
+    imageUrl: "gallery/student4.jpg",
+    caption: "friday khutbah",
   },
+
   // Add more photos here
 ];
 

@@ -69,8 +69,8 @@ function Home() {
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-blue-700 mb-2">
             {user?.displayName
-              ? `Welcome ${user.displayName} to the Muslim Community of Victoria 🕌`
-              : "Welcome to the Muslim Community of Victoria 🕌"}
+              ? `Welcome ${user.displayName} to Victoria University Muslim Students Assosiation(VUMSA)`
+              : "Welcome to  Victoria University Muslim Students Assosiation(VUMSA)🕌"}
           </h1>
           <p className="text-gray-600 max-w-xl mx-auto text-lg">
             A united place for students and community members to connect, pray,

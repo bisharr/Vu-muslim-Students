@@ -68,10 +68,16 @@ const Footer = () => {
               <a href="#" className="hover:text-blue-400">
                 Facebook
               </a>
-              <a href="#" className="hover:text-blue-300">
+              <a
+                href="https://www.instagram.com/bishar_abdinur/"
+                className="hover:text-blue-300"
+              >
                 Instagram
               </a>
-              <a href="#" className="hover:text-blue-200">
+              <a
+                href="#https://x.com/abdinur_bishar"
+                className="hover:text-blue-200"
+              >
                 Twitter
               </a>
             </div>

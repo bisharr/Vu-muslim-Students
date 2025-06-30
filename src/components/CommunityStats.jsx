@@ -28,9 +28,9 @@ const CommunityStats = () => {
   return (
     <div
       className="bg-cover bg-center py-16 px-4 sm:px-8"
-      style={{ backgroundImage: "url('/student1.jpg')" }}
+      style={{ backgroundImage: "url('/bg.jpg')" }}
     >
-      <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-xl max-w-3xl mx-auto p-6 sm:p-10 text-center">
+      <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-xl shadow-xl max-w-3xl mx-auto p-6 sm:p-10 text-center">
         {/* Logo */}
         <div className="flex justify-center mb-4">
           <img
@@ -42,7 +42,7 @@ const CommunityStats = () => {
 
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">
-          We are the Muslim students and community of Victoria University
+          (VUMSA)
         </h2>
 
         {/* Animated Count */}
