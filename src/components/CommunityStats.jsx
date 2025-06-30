@@ -41,9 +41,9 @@ const CommunityStats = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">
+        {/* <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">
           (VUMSA)
-        </h2>
+        </h2> */}
 
         {/* Animated Count */}
         <p className="text-lg sm:text-xl text-gray-700">
