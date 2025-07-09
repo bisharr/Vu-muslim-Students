@@ -98,8 +98,8 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-12 text-center text-xs text-gray-400 border-t border-gray-500 pt-6">
-          &copy; {new Date().getFullYear()} Muslim Community of Victoria. All
-          rights reserved.
+          &copy; {new Date().getFullYear()} Victoria University Muslim Students
+          Association. All rights reserved.
         </div>
       </div>
     </footer>

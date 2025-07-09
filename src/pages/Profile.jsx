@@ -5,6 +5,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { db } from "../firebase/firebaseConfig";
 import { Link } from "react-router-dom";
 import DonationInfo from "../components/DonationInfo";
+import Contact from "../pages/Contact";
 
 const Profile = () => {
   const { user } = useAuth();
@@ -55,6 +56,7 @@ const Profile = () => {
           Edit Profile
         </Link>
       </div>
+      <Contact />
       <DonationInfo />
     </section>
   );

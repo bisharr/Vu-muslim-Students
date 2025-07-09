@@ -55,7 +55,7 @@ const Contact = () => {
         {/* Header */}
         <div className="mb-6 text-center">
           <h2 className="text-3xl font-bold text-blue-800 mb-2">
-            📩 Reach Out to the MCV Team
+            📩 Reach Out to the VUMSA Team
           </h2>
           <p className="text-gray-700 text-md sm:text-lg">
             Whether you’re a student or a community member, we welcome your
