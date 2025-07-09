@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-
+import { FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { FaFacebook } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer
@@ -64,27 +67,30 @@ const Footer = () => {
             <h2 className="text-lg font-semibold mb-3 text-white">Contact</h2>
             <p className="text-gray-300">📍 Victoria university Kampala</p>
             <p className="text-gray-300">✉️ info@victoriamuslim.org</p>
-            <div className="mt-4 flex space-x-4 text-gray-200">
-              <a href="#" className="hover:text-blue-400">
-                Facebook
+            <div className="mt-4 flex space-x-4 text-gray-200 text-wrap">
+              <a
+                href="https://www.facebook.com/bishar.ajey"
+                className="hover:text-blue-400"
+              >
+                <FaFacebook />
               </a>
               <a
                 href="https://chat.whatsapp.com/IKcHgiXjN4CKG9G3H3v4Jm?mode=r_c"
                 className="hover:text-blue-400"
               >
-                our wathsapp Group
+                <FaWhatsapp />
               </a>
               <a
                 href="https://www.instagram.com/bishar_abdinur/"
                 className="hover:text-blue-300"
               >
-                Instagram
+                <FaInstagram />
               </a>
               <a
-                href="#https://x.com/abdinur_bishar"
+                href="https://x.com/abdinur_bishar"
                 className="hover:text-blue-200"
               >
-                Twitter
+                <BsTwitterX />
               </a>
             </div>
           </div>

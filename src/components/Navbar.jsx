@@ -27,7 +27,7 @@ function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "P/Times", path: "/prayer-times" },
+    { name: "Prayer Times", path: "/prayer-times" },
     { name: "Events/Gallery", path: "/events" },
     { name: "Resources", path: "/resources" },
     { name: "Contact", path: "/contact" },
