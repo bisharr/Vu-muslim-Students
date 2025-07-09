@@ -22,7 +22,10 @@ const DonationInfo = () => {
             💸 Donate via Mobile Money:
           </p>
           <p className="text-lg font-bold mt-1 text-gray-800 tracking-wide">
-            📞 +256 700 123 456
+            📞 +256 704770760
+          </p>
+          <p className="text-sm text-gray-600 mt-1 italic">
+            Muhamood Abdulmalik
           </p>
           <p className="text-sm text-gray-600 mt-1 italic">
             (Call or send via MTN/Airtel)

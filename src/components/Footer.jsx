@@ -62,11 +62,17 @@ const Footer = () => {
           {/* Contact & Social */}
           <div>
             <h2 className="text-lg font-semibold mb-3 text-white">Contact</h2>
-            <p className="text-gray-300">📍 Victoria, BC</p>
+            <p className="text-gray-300">📍 Victoria university Kampala</p>
             <p className="text-gray-300">✉️ info@victoriamuslim.org</p>
             <div className="mt-4 flex space-x-4 text-gray-200">
               <a href="#" className="hover:text-blue-400">
                 Facebook
+              </a>
+              <a
+                href="https://chat.whatsapp.com/IKcHgiXjN4CKG9G3H3v4Jm?mode=r_c"
+                className="hover:text-blue-400"
+              >
+                our wathsapp Group
               </a>
               <a
                 href="https://www.instagram.com/bishar_abdinur/"
