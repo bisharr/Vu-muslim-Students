@@ -34,7 +34,7 @@ const CommunityStats = () => {
         {/* Logo */}
         <div className="flex justify-center mb-4">
           <img
-            src="/logo.png"
+            src="/logo-new.png"
             alt="MCV Logo"
             className="h-13 w-20 object-contain"
           />

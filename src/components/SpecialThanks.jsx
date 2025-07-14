@@ -6,7 +6,7 @@ const specialPeople = [
     role: "Spiritual Guide",
     image: "/gallery/imam.jpg",
     message:
-      "With a sincere heart, spiritual insight, and dedicated service to Muslims at Victoria University..",
+      "With sincere heart, insight, and dedication to Muslims at Victoria University..",
     links: {
       website: "https://imam-community.org",
       instagram: "https://instagram.com/imam_ahmed",
@@ -27,6 +27,17 @@ const specialPeople = [
     role: "Lead Developer",
     image: "/gallery/developer.jpg",
     message: "The visionary behind this digital home for our Muslim community.",
+    links: {
+      twitter: "https://twitter.com/abdirahman_dev",
+      instagram: "https://linkedin.com/in/abdirahman-dev",
+    },
+  },
+  {
+    name: "BAINGANA MOHSIN",
+    role: "Community Advisor",
+    image: "/gallery/advisor.jpg",
+    message:
+      "We are truly grateful for your insightful guidance and continued support throughout our journey..",
     links: {
       twitter: "https://twitter.com/abdirahman_dev",
       instagram: "https://linkedin.com/in/abdirahman-dev",

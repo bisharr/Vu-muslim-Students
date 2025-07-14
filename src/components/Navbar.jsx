@@ -52,7 +52,7 @@ function Navbar() {
           onClick={closeMenu}
         >
           <img
-            src="/logo.png"
+            src="/logo-new.png"
             alt="MCV Logo"
             className="h-10 w-15 object-contain"
           />

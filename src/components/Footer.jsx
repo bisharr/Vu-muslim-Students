@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Logo & Brand */}
           <div className="flex flex-col items-start space-y-3">
             <img
-              src="/logo.png"
+              src="/logo-new.png"
               alt="MCV Logo"
               className="h-12 w-auto object-contain"
             />
