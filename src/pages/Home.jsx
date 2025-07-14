@@ -9,6 +9,7 @@ import Gallery from "../components/Gallery";
 import { useAuth } from "../context/AuthContext";
 import RandomVerse from "../components/RandomVerse";
 import StaticGallery from "../components/Gallery";
+import SpecialThanks from "../components/SpecialThanks";
 
 function Home() {
   const { user } = useAuth();
@@ -115,6 +116,7 @@ function Home() {
         <RandomVerse />
       </div>
       {/* Donate */}
+      <SpecialThanks />
       <DonationInfo />
     </div>
   );

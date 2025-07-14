@@ -84,7 +84,7 @@ function Navbar() {
                   : "text-gray-700 hover:text-blue-500"
               } pb-1 transition`}
             >
-              Admin Panel
+              Admin
             </Link>
           )}
 
