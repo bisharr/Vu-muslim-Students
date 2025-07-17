@@ -18,6 +18,7 @@ import Profile from "./pages/Profile";
 import UserList from "./Admin/UserList";
 import ForgotPassword from "./pages/ForgotPassword";
 import EditProfile from "./pages/EditProfile";
+
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./routes/AdminRoute";
 import AdminPostEvent from "./Admin/AdminPostEvent";
@@ -27,6 +28,7 @@ import ViewMessages from "./Admin/ViewMessages";
 
 import QuizForm from "./Admin/QuizForm";
 import AttemptQuiz from "./pages/AttempQuiz";
+import BuyHalalStyle from "./pages/BuyHalalStyle";
 
 function App() {
   return (
@@ -68,6 +70,14 @@ function App() {
           element={
             <PrivateRoute>
               <Events />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/halalStyle"
+          element={
+            <PrivateRoute>
+              <BuyHalalStyle />
             </PrivateRoute>
           }
         />
