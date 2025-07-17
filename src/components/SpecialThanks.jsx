@@ -28,8 +28,8 @@ const specialPeople = [
     image: "/gallery/developer.jpg",
     message: "The visionary behind this digital home for our Muslim community.",
     links: {
-      twitter: "https://twitter.com/abdirahman_dev",
-      instagram: "https://linkedin.com/in/abdirahman-dev",
+      twitter: "https://x.com/abdinur_bishar",
+      instagram: "https://www.instagram.com/bishar_abdinur/",
     },
   },
   {
