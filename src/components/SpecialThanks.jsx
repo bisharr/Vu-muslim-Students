@@ -1,4 +1,11 @@
-import { FaInstagram, FaLinkedin, FaGlobe, FaTwitter } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaGlobe,
+  FaTwitter,
+  FaWhatsapp,
+  FaGithub,
+} from "react-icons/fa";
 
 const specialPeople = [
   {
@@ -8,7 +15,7 @@ const specialPeople = [
     message:
       "With sincere heart, insight, and dedication to Muslims at Victoria University..",
     links: {
-      website: "https://imam-community.org",
+      whatsapp: "https://wa.me/256702908672",
       instagram: "https://instagram.com/imam_ahmed",
     },
   },
@@ -19,7 +26,7 @@ const specialPeople = [
     message: "A leader who built bridges and brought people together.",
     links: {
       instagram: "https://instagram.com/abdi_yusuf",
-      linkedin: "https://linkedin.com/in/abdi_yusuf",
+      whatsapp: "https://wa.me/256368546",
     },
   },
   {
@@ -28,8 +35,9 @@ const specialPeople = [
     image: "/gallery/developer.jpg",
     message: "The visionary behind this digital home for our Muslim community.",
     links: {
-      twitter: "https://x.com/abdinur_bishar",
       instagram: "https://www.instagram.com/bishar_abdinur/",
+      whatsapp: "https://wa.me/256703240815",
+      github: "https://github.com/bisharr",
     },
   },
   {
@@ -79,6 +87,24 @@ const SpecialThanks = () => {
                     rel="noreferrer"
                   >
                     <FaInstagram />
+                  </a>
+                )}
+                {person.links.whatsapp && (
+                  <a
+                    href={person.links.whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaWhatsapp />
+                  </a>
+                )}
+                {person.links.github && (
+                  <a
+                    href={person.links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaGithub />
                   </a>
                 )}
                 {person.links.linkedin && (
