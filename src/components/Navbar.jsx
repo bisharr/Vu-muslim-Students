@@ -156,7 +156,7 @@ function Navbar() {
                   : "text-gray-700 hover:text-blue-500"
               }`}
             >
-              Admin Panel
+              Admin
             </Link>
           )}
 

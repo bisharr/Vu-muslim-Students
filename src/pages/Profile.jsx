@@ -6,6 +6,7 @@ import { db } from "../firebase/firebaseConfig";
 import { Link } from "react-router-dom";
 import DonationInfo from "../components/DonationInfo";
 import Contact from "../pages/Contact";
+import MyOrdersPage from "../components/MyOrdersPage";
 
 const Profile = () => {
   const { user } = useAuth();
@@ -56,6 +57,7 @@ const Profile = () => {
           Edit Profile
         </Link>
       </div>
+      <MyOrdersPage />
       <Contact />
       <DonationInfo />
     </section>

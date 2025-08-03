@@ -29,6 +29,16 @@ import ViewMessages from "./Admin/ViewMessages";
 import QuizForm from "./Admin/QuizForm";
 import AttemptQuiz from "./pages/AttempQuiz";
 import BuyHalalStyle from "./pages/BuyHalalStyle";
+import Shop from "./pages/BuyHalalStyle";
+import ProductDetail from "./components/ProductDetail";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import UploadProduct from "./Admin/UploadProduct";
+
+import AdminOrdersPage from "./Admin/AdminOrdersPage";
+import AdminManageProducts from "./Admin/AdminManageProducts";
+import EditProduct from "./Admin/EditProduct";
+import OrderSuccess from "./pages/OrderSuccess";
 
 function App() {
   return (
@@ -77,7 +87,34 @@ function App() {
           path="/halalStyle"
           element={
             <PrivateRoute>
-              <BuyHalalStyle />
+              <Shop />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="product/:id"
+          element={
+            <PrivateRoute>
+              <ProductDetail />
             </PrivateRoute>
           }
         />
@@ -90,10 +127,42 @@ function App() {
           }
         />
         <Route
+          path="/admin/orders"
+          element={
+            <AdminRoute>
+              <AdminOrdersPage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/manageProduct"
+          element={
+            <AdminRoute>
+              <AdminManageProducts />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/edit-product/:id"
+          element={
+            <AdminRoute>
+              <EditProduct />
+            </AdminRoute>
+          }
+        />
+        <Route
           path="/admin/users"
           element={
             <AdminRoute>
               <UserList />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/upload"
+          element={
+            <AdminRoute>
+              <UploadProduct />
             </AdminRoute>
           }
         />
@@ -128,6 +197,14 @@ function App() {
             <AdminRoute>
               <QuizForm />
             </AdminRoute>
+          }
+        />
+        <Route
+          path="/order-success"
+          element={
+            <PrivateRoute>
+              <OrderSuccess />
+            </PrivateRoute>
           }
         />
         <Route

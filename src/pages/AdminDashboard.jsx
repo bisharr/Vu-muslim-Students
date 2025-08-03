@@ -42,6 +42,30 @@ const AdminDashboard = () => {
               <p>See messages submitted through the website.</p>
             </Link>
           </div>
+          <div className="bg-red-100 p-4 rounded-lg shadow">
+            <Link to="/admin/upload">
+              <h2 className="font-semibold text-green-700 mb-2">
+                🛒 Upload Product
+              </h2>
+              <p>Upload any Product availble in shop to Online.</p>
+            </Link>
+          </div>
+          <div className="bg-orange-100 p-4 rounded-lg shadow">
+            <Link to="/admin/orders">
+              <h2 className="font-semibold text-green-700 mb-2">
+                🛒All Orders
+              </h2>
+              <p>Manage Orders from users</p>
+            </Link>
+          </div>
+          <div className="bg-gray-400 p-4 rounded-lg shadow">
+            <Link to="/admin/manageProduct">
+              <h2 className="font-semibold text-white mb-2">
+                🛒Manage Products
+              </h2>
+              <p className="text-gray-100"> Admin Product Management</p>
+            </Link>
+          </div>
           {/* <div className="bg-yellow-100 p-4 rounded-lg shadow">
             <Link to="/admin/addmin-add_Photo">
               <h2 className="font-semibold text-yellow-700 mb-2">
