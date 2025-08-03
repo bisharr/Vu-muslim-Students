@@ -1,12 +1,26 @@
-# React + Vite
+Muslim Community Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+you Can visit Here https://www.vumsa.online/
 
-Currently, two official plugins are available:
+<img width="1333" height="741" alt="image" src="https://github.com/user-attachments/assets/677a074d-31cf-46fc-ae36-f065616e7e77" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A feature-rich web application designed to serve the Muslim community at our university, fostering connection, engagement, and access to Islamic resources.
 
-## Expanding the ESLint configuration
+Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Prayer Times: Displays accurate, real-time prayer schedules for Uganda.
+Upcoming Events: Users can view events uploaded by admins, keeping the community informed.
+Daily Hadith & Quran Verse: Provides daily inspirational Hadith and Quran verses.
+User Profiles: Registered users can sign up, edit their profiles, and engage with the platform.
+E-Commerce: Allows users to purchase Muslim outfits directly on the website.
+Islamic Resources: Offers downloadable Islamic resources for educational purposes.
+Donation System: Enables users to contribute donations to support the community.
+Community Insights: Shows the total number of registered students.
+
+Admin Dashboard: Admins can:
+Manage products and events (add, edit, delete).
+Track orders and update product statuses.
+View all registered users and messages sent via the contact page.
+
+Purpose
+This website aims to create a centralized platform for the university's Muslim community, promoting spiritual growth, community engagement, and easy access to essential resources and services
