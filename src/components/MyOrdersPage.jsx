@@ -22,6 +22,8 @@ const MyOrders = () => {
       const snapshot = await getDocs(q);
       const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setOrders(data);
+
+      console.log(data);
     } catch (err) {
       console.error("Error fetching orders:", err);
       toast.error("Failed to load orders.");
@@ -88,6 +90,9 @@ const MyOrders = () => {
                       <h2 className="text-lg font-semibold text-blue-800">
                         {firstItem?.name}
                       </h2>
+                      <h4 className="text-xl text-blue-600">
+                        {firstItem?.size}
+                      </h4>
                       <p className="text-sm text-gray-600">
                         Total: UGX{" "}
                         {(totalAmount + transportMoney).toLocaleString()}

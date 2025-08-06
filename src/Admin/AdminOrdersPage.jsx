@@ -37,6 +37,7 @@ const AdminOrdersPage = () => {
       }
 
       setOrders(newOrders);
+
       initialized.current = true;
     });
 
@@ -139,7 +140,7 @@ const AdminOrdersPage = () => {
 
                 {/* 🛍️ Product Preview */}
                 {firstItem && (
-                  <div className="flex items-center gap-4 border p-2 rounded-md bg-blue-50">
+                  <div className="flex w-full items-center gap-4 border p-2 rounded-md bg-blue-50">
                     <img
                       src={firstItem.images?.[0]}
                       alt={firstItem.name}
@@ -147,6 +148,9 @@ const AdminOrdersPage = () => {
                     />
                     <p className="font-medium text-blue-800 text-sm sm:text-base">
                       {firstItem.name}
+                    </p>
+                    <p className="font-medium flex-1 text-blue-600 text-sm sm:text-base">
+                      Size = {firstItem.size}
                     </p>
                   </div>
                 )}
